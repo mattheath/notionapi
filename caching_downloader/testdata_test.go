@@ -3,11 +3,9 @@ package caching_downloader
 import (
 	"testing"
 
-	"github.com/kjk/notionapi/tohtml"
-
-	"github.com/kjk/notionapi/tomarkdown"
-
-	"github.com/kjk/notionapi"
+	"github.com/mattheath/notionapi"
+	"github.com/mattheath/notionapi/tohtml"
+	"github.com/mattheath/notionapi/tomarkdown"
 
 	"github.com/stretchr/testify/require"
 )

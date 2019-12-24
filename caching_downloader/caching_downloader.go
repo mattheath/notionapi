@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/kjk/caching_http_client"
-	"github.com/kjk/notionapi"
+	"github.com/mattheath/notionapi"
 )
 
 // EventDidDownload is for logging. Emitted when page

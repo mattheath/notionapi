@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/kjk/notionapi"
+	"github.com/mattheath/notionapi"
 )
 
 func maybePanic(format string, args ...interface{}) {
