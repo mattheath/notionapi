@@ -475,8 +475,10 @@ func (c *Converter) RenderQuote(block *notionapi.Block) {
 
 // RenderCallout renders BlockCallout
 func (c *Converter) RenderCallout(block *notionapi.Block) {
-	// TODO: implement me
-	c.WriteString("RenderCallout NYI\n")
+	// TODO: implement me properly, rather than as a quote
+	text := c.GetInlineContent(block.InlineContent, true)
+	s := fmt.Sprintf("> %s\n", text)
+	c.WriteString(s)
 }
 
 // RenderDivider renders BlockDivider
@@ -643,7 +645,7 @@ func (c *Converter) RenderCollectionView(block *notionapi.Block) {
 	if len(block.TableViews) == 0 {
 		return
 	}
-	c.WriteString("RendeRenderCollectionViewrCode NYI\n")
+	c.WriteString("RenderCollectionViewCode NYI\n")
 
 	c.RenderChildren(block)
 }
