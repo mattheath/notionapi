@@ -37,7 +37,7 @@ const (
 	BlockDivider = "divider"
 	// BlockDrive is embedded Google Drive file
 	BlockDrive = "drive"
-	// BlockEmbed is a generic oembed link
+	// BlockEmbed is a generic embed link
 	BlockEmbed = "embed"
 	// BlockEquation is TeX equation block
 	BlockEquation = "equation"
