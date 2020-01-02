@@ -3,7 +3,9 @@ package notionapi
 import (
 	"errors"
 	"fmt"
+	"regexp"
 	"sort"
+	"strings"
 )
 
 var (
@@ -12,6 +14,8 @@ var (
 		"page_full_width": struct{}{},
 		"page_small_text": struct{}{},
 	}
+
+	alphanumeric = regexp.MustCompile("[^a-zA-Z0-9-]+")
 )
 
 // Page describes a single Notion page
@@ -115,8 +119,11 @@ func (p *Page) NotionURL() string {
 		return ""
 	}
 	id := ToNoDashID(p.ID)
-	// TODO: maybe add title?
-	return "https://www.notion.so/" + id
+	title := strings.TrimSpace(p.Root().Title)
+	title = strings.Replace(title, " ", "-", -1)
+	title = alphanumeric.ReplaceAllString(title, "")
+
+	return "https://www.notion.so/" + title + "-" + id
 }
 
 func forEachBlockWithParent(seen map[string]bool, blocks []*Block, parent *Block, cb func(*Block)) {
