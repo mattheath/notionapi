@@ -372,8 +372,9 @@ func (c *Client) DownloadPage(pageID string) (*Page, error) {
 			return nil, err
 		}
 		recordMap := rsp.RecordMap
-		for id, v := range recordMap.Blocks {
-			b := v.Block
+		for id, r := range recordMap.Blocks {
+			p.BlockRecords = append(p.BlockRecords, r)
+			b := r.Block
 			if b.Alive {
 				p.idToBlock[id] = b
 			} else {
