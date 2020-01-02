@@ -47,6 +47,15 @@ func (p *Page) BlockByID(id string) *Block {
 	return p.idToBlock[ToDashID(id)]
 }
 
+// AllBlocks returns all the blocks we found from this page
+func (p *Page) AllBlocks() []*Block {
+	br := make([]*Block, 0)
+	for _, b := range p.idToBlock {
+		br = append(br, b)
+	}
+	return br
+}
+
 // UserByID returns a user by its id
 func (p *Page) UserByID(id string) *User {
 	return p.idToUser[ToDashID(id)]
